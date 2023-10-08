@@ -1,0 +1,38 @@
+[package]
+name = "isere"
+authors = ["jeeyo"]
+version = "0.1.0"
+edition = "2021"
+license = "MPL-2.0"
+description = "Minimal example for lilos on rp2040."
+repository = "https://github.com/jeeyo/isere/"
+keywords = ["javascript", "microcontroller", "serverless"]
+categories = ["embedded"]
+readme = "README.md"
+publish = false
+
+[package.metadata.docs.rs]
+default-target = "thumbv6m-none-eabi"
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+embedded-hal = { version = "0.2.5", features = ["unproven"] }
+
+lilos = { version = "0.3.6", default-features = false, features = ["systick"] }
+rp-pico = "0.8.0"
+
+defmt = "0.3"
+defmt-rtt = "0.4"
+panic-probe = { version = "0.3", features = ["print-defmt"] }
+
+[[bin]]
+name = "isere"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1 # better optimizations
+debug = true # symbols are nice and they don't increase the size on Flash
+lto = true # better optimizations
+opt-level = "z"
