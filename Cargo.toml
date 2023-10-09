@@ -18,9 +18,10 @@ default-target = "thumbv6m-none-eabi"
 cortex-m = "0.7"
 cortex-m-rt = "0.7"
 embedded-hal = { version = "0.2.5", features = ["unproven"] }
+embedded-alloc = "0.5"
 
 lilos = { version = "0.3.6", default-features = false, features = ["systick"] }
-rp-pico = "0.8.0"
+rp-pico = "0.8"
 
 defmt = "0.3"
 defmt-rtt = "0.4"
